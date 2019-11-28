@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Project/_Scene/YatchSimulation.unity
+    guid: 82e159ba25bdbd142907b71f9e1723b6
   m_configObjects: {}
