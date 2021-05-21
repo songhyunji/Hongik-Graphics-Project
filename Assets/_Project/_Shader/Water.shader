@@ -12,9 +12,6 @@
 
 		samplerCUBE _Cube;
 		sampler2D _BumpMap;
-		float4 _SPColor;
-		float _SPPower;
-		float _SPMulit;
 	
 		struct Input {
 			float2 uv_BumpMap;
@@ -33,7 +30,6 @@
 			float rim = saturate(dot(o.Normal, IN.viewDir));
 			rim = pow(1 - rim, 1.5);
 
-			//o.Emission = refcolor * rim * 2;
 			o.Albedo = refcolor * rim * 2;
 			o.Alpha = saturate(rim + 0.5);
 		}
@@ -41,10 +37,8 @@
 		void vert(inout appdata_full v) {
 			float movement;
 			movement = sin(abs((v.texcoord.x * 2 - 1) * 15) + _Time.y * 2) * 0.1;
-			movement += sin(abs((v.texcoord.x * 2 - 1) * 15) + _Time.y * 2) * 0.1;
+			movement += sin(abs((v.texcoord.y * 2 - 1) * 15) + _Time.y * 2) * 0.1;
 			v.vertex.y += movement / 2;
-			//v.vertex.x += movement / 2;
-			//v.vertex.y += sin (abs((v.texcoord.x * 2 - 1) * 15) + _Time.y * 2) * 0.1 ;
 		}
 
 		ENDCG
